@@ -173,7 +173,7 @@ const App: React.FC = () => {
             <div className="px-4 mt-4 flex justify-center">
               <div className="px-4 py-2 flex items-center space-x-2">
                 <img src={dollarCoin} alt="Dollar Coin" className="w-10 h-10" />
-                <p className="text-4xl font-weight-bolder text-white">{points.toLocaleString()}</p>
+                <p className="text-4xl font-weight-bolder text-white">{getInitialPoints()}</p>
               </div>
             </div>
 
