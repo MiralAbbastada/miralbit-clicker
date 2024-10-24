@@ -43,25 +43,27 @@ const App: React.FC = () => {
     10000000, // Legendary
     50000000, // Master
     100000000,// GrandMaster
-    1000000000// DungeonMaster
+    1000000000 // DungeonMaster
   ];
 
   // Check if there are saved points and levelIndex in localStorage
   const getInitialPoints = () => {
+    // localStorage.setItem('points', "0");
     const savedPoints = localStorage.getItem('points');
-    return savedPoints ? parseInt(savedPoints) : 22749365; // Default value if no data is saved
+    return savedPoints ? parseInt(savedPoints) : 0; // Default value if no data is saved
   };
 
   const getInitialLevelIndex = () => {
+    // localStorage.setItem('levelIndex', "0");
     const savedLevelIndex = localStorage.getItem('levelIndex');
-    return savedLevelIndex ? parseInt(savedLevelIndex) : 6; // Default value if no data is saved
+    return savedLevelIndex ? parseInt(savedLevelIndex) : 0; // Default value if no data is saved
   };
 
   const [levelIndex, setLevelIndex] = useState(getInitialLevelIndex());
   const [points, setPoints] = useState(getInitialPoints());
   const [clicks, setClicks] = useState<{ id: number, x: number, y: number }[]>([]);
   const pointsToAdd = 5;
-  const profitPerHour = 593043;
+  const profitPerHour = 10000;
 
   
   const [userData, setUserData] = useState<UserData | null>(null);
@@ -79,7 +81,7 @@ const App: React.FC = () => {
     const rect = card.getBoundingClientRect();
     const x = e.clientX - rect.left - rect.width / 2;
     const y = e.clientY - rect.top - rect.height / 2;
-    card.style.transform = `perspective(1000px) rotateX(${-y / 15}deg) rotateY(${x / 15}deg)`;
+    card.style.transform = `perspective(900px) rotateX(${-y / 25}deg) rotateY(${x / 25}deg)`;
     setTimeout(() => {
       card.style.transform = '';
     }, 100);
@@ -154,7 +156,7 @@ const App: React.FC = () => {
                 </div>
               </div>
             </div>
-            <div className="flex items-center w-2/3 border-2 border-[#43433b] rounded-full px-4 py-[2px] bg-[#43433b]/[0.6] max-w-64">
+            <div className="flex items-center w-2/3 border-2 border-[#43433b] rounded-[10px] px-4 py-[2px] bg-[#43433b]/[0.6] max-w-64">
               <div className="flex-1 text-center">
                 <p className="text-xs text-[#85827d] font-medium">Profit per hour</p>
                 <div className="flex items-center justify-center space-x-1">
@@ -191,8 +193,8 @@ const App: React.FC = () => {
       </div>
 
       {/* Bottom fixed div */}
-      <div className="fixed bottom-0 left-1/2 transform -translate-x-1/2 w-[calc(100%-2rem)] max-w-xl bg-gradient-to-r from-[#f5f5f5]/10 to-[#FFFFFF]/5 mb-5 flex justify-around items-center p-5 z-50 rounded-[5000px] text-xs">
-        <div className="text-center text-yellow w-auto bg-[#1C1B18] m-1 p-2 rounded-[5000px]">
+      <div className="fixed bottom-0 left-1/2 transform -translate-x-1/2 w-[calc(100%-2rem)] max-w-xl bg-gradient-to-r from-[#f5f5f5]/10 to-[#FFFFFF]/5 mb-5 flex justify-around items-center p-5 z-50 rounded-[20px] text-xs">
+        <div className="text-center text-yellow w-auto bg-[#1C1B18] m-1 p-2 rounded-[10px]">
           <img src={binanceLogo} alt="Exchange" className="w-8 h-8 mx-auto" />
         </div>
         <div className="text-center text-[#85827d] w-1/5">
